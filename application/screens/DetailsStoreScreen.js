@@ -2,13 +2,15 @@ import React from 'react';
 import { StyleSheet, Text, View, Button } from 'react-native';
 import { withNavigation } from 'react-navigation';
 import ListProducts from '../components/ListProducts';
+import SearchProducts from '../components/SearchProducts';
 
 
 
 function DetailsStoreScreen({ navigation, route: { params: { name, id, address } } }) {
     const goToShop = () => { navigation.navigate("Dettagli Shop", { name, id, address }) }
     return (
-        <View>
+        <View style={styles.container}>
+            <View></View>
             <ListProducts productlist={productList} navigation={navigation} />
             <Text>{name}</Text>
         </View>
@@ -32,11 +34,14 @@ const productList = [{
 
 
 
-// const styles = StyleSheet.create({
-//     container: {
-//         backgroundColor: "#0c8d0c",
-//         padding: 20
-//     }
-//     }
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+    },
+    searchProductsContainer: {
+        flex: 1,
+    }
+})
+
 
 export default withNavigation(DetailsStoreScreen);
