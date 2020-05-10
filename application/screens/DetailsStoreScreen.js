@@ -1,23 +1,39 @@
 import React from 'react';
-import { StyleSheet, Text, View, Button } from 'react-native';
+import { StyleSheet, Text, View, Button, SafeAreaView,TouchableOpacity } from 'react-native';
 import { withNavigation } from 'react-navigation';
 import ListProducts from '../components/ListProducts';
-import SearchProducts from '../components/SearchProducts';
+import Icon from 'react-native-vector-icons/Ionicons';
+
+
 
 
 
 function DetailsStoreScreen({ navigation, route: { params: { name, id, address } } }) {
-    const goToShop = () => { navigation.navigate("Dettagli Shop", { name, id, address }) }
+    const goToHome = () => { navigation.navigate("Home") }
+    const goToSearch = () => {navigation.navigate("Search")}
+    const goToAccount = () => {navigation.navigate("Account")}
+    const goToCart = () => {navigation.navigate("Cart")}
     return (
-        <View style={styles.container}>
-            <View style={styles.searchProductsContainer}ß>
-                <SearchProducts/>
-            </View>
+        <SafeAreaView style={styles.container}>
             <View style={styles.listContainer}>
                 <ListProducts productlist={productList} navigation={navigation} />
                 <Text>{name}</Text>
             </View>
-        </View>
+            <View style={styles.buttonContainer}>
+                <TouchableOpacity onPress={goToHome}>
+                <View><Icon name="ios-home" size={50}/></View>
+                </TouchableOpacity>
+                <TouchableOpacity onPress={goToSearch}>
+                    <View><Icon name="ios-search" size={50}/></View>
+                </TouchableOpacity>
+                <TouchableOpacity onPress={goToCart}>
+                    <View><Icon name="md-cart" size={50}/></View>
+                </TouchableOpacity>
+                <TouchableOpacity onPress={goToAccount}>
+                    <View><Icon name="md-contact" size={50}/></View>
+                </TouchableOpacity>
+            </View>
+        </SafeAreaView>
     );
 }
 
@@ -42,12 +58,15 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
     },
-    searchProductsContainer: {
-        flex: 1,  
-    },
     listContainer:{
-        flex:5
-    }
+        flex:14
+    },
+    buttonContainer: {
+        flex: 1,
+        flexDirection: 'row',
+        padding:10,
+        justifyContent: 'space-between'
+    },
 })
 
 
