@@ -1,15 +1,23 @@
 import React from 'react';
-import { Text, View, Button, TextInput } from 'react-native';
+import { Text, View, Button, TextInput, StyleSheet} from 'react-native';
 import ListStore from '../components/stores/ListStore';
+import { SafeAreaView } from 'react-navigation';
+import Icon from 'react-native-vector-icons/Ionicons';
 
 
 
-const HomeScreen = ({ navigation }) => {
+function HomeScreen({ navigation }) {
+    const goToHome = () => { navigation.navigate("Home") }
     return (
-        <View>
-            <Text>HomeScreen</Text>
-            <ListStore storelist={storeList} navigation={navigation} />
-        </View>
+        <SafeAreaView style={styles.container}>
+            <View style={styles.listContainer}>
+                <ListStore storelist={storeList} navigation={navigation} />
+            </View>
+            <View style={styles.buttonContainer}>
+            <Icon name="ios-home" size={50}/>
+                <Button title='Home'/>
+            </View>
+        </SafeAreaView>
     )
 };
 
@@ -29,22 +37,23 @@ const storeList = [
         name: "Restivo Alimentari",
         id: 3,
         address: "Corso Garibaldi"
-    }
+    },
 ]
 
-// const productList = [{
-//     prodotto: "Gelato",
-//     n: 1
-// },
-// {
-//     prodotto: "Panna",
-//     n: 2
-// },
-// {
-//     prodotto: "Farina",
-//     n: 3
-// }
-// ]
+const styles = StyleSheet.create({
+    buttonContainer: {
+        flex:1,
+        flexDirection:'row'
+        
+    },
+    listContainer:{
+        flex:17,
+    },
+    container:{
+        flex:1,
+    }
+
+})
 
 
 

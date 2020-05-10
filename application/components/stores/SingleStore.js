@@ -5,6 +5,7 @@ import { TouchableOpacity } from 'react-native-gesture-handler';
 
 
 
+
 const SingleStore = ({ name, id, address, navigation }) => {
     const goToShop = () => {
         navigation.navigate("Dettagli Shop", { name, id, address })
@@ -13,10 +14,10 @@ const SingleStore = ({ name, id, address, navigation }) => {
         <View style={styles.container} style={styles.separator} >
             <Text style={styles.name}>{name} {address}</Text>
             <TouchableOpacity style={styles.button} onPress={goToShop}>
-    <Text>Vai al Negozio</Text>
+                <Text>Vai al Negozio</Text>
             </TouchableOpacity>
         </View>
-        
+
     );
 
 }
@@ -24,7 +25,8 @@ const styles = StyleSheet.create({
     container: {
         backgroundColor: "black",
         padding: 20,
-        marginBottom: 5
+        marginBottom: 5,
+        flex:1,
     },
     name: {
         color: "#000",
@@ -33,7 +35,7 @@ const styles = StyleSheet.create({
         alignSelf: "center"
     },
     separator: {
-        padding:30,
+        padding: 30,
         marginVertical: 8,
         backgroundColor: '#22E8D3',
         borderBottomColor: 'green',
@@ -49,6 +51,8 @@ const styles = StyleSheet.create({
 
 
     },
+  
+
 })
 
 

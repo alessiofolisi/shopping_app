@@ -10,9 +10,13 @@ function DetailsStoreScreen({ navigation, route: { params: { name, id, address }
     const goToShop = () => { navigation.navigate("Dettagli Shop", { name, id, address }) }
     return (
         <View style={styles.container}>
-            <View></View>
-            <ListProducts productlist={productList} navigation={navigation} />
-            <Text>{name}</Text>
+            <View style={styles.searchProductsContainer}ß>
+                <SearchProducts/>
+            </View>
+            <View style={styles.listContainer}>
+                <ListProducts productlist={productList} navigation={navigation} />
+                <Text>{name}</Text>
+            </View>
         </View>
     );
 }
@@ -39,7 +43,10 @@ const styles = StyleSheet.create({
         flex: 1,
     },
     searchProductsContainer: {
-        flex: 1,
+        flex: 1,  
+    },
+    listContainer:{
+        flex:5
     }
 })
 

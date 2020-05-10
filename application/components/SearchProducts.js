@@ -8,7 +8,7 @@ export default function SearchProducts() {
 
     return (
         <View style={styles.container}>
-            {/* <View style={styles.searchBar}>
+            <View style={styles.searchBar}>
                 <View style={styles.iconContainer}>
                     <Icon name="ios-search" size={30} color="black"/>
                 </View>
@@ -24,7 +24,7 @@ export default function SearchProducts() {
             </View>
             <View style={styles.resultContainer}>
                 <Text style={styles.chronology}>Risultati per: {value} </Text>
-            </View> */}
+            </View>
         </View>
     );
 }
